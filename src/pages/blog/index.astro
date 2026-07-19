@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout title="博客 — kumiko" description="博客文章列表">
+  <div class="blog-page container">
+    <h1 class="page-title">博客</h1>
+    <p class="page-subtitle">记录学习、生活和思考</p>
+    <section class="blog-list">
+      {posts.length > 0 ? (
+        posts.map((post) => <BlogCard post={post} />)
+      ) : (
+        <p class="empty">还没有文章，敬请期待 😊</p>
+      )}
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .blog-page {
+    padding: var(--gap-xl) 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--gap-sm);
+  }
+
+  .page-subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--gap-xl);
+  }
+
+  .blog-list {
+    margin-top: var(--gap-md);
+  }
+
+  .empty {
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--gap-xl) 0;
+  }
+</style>

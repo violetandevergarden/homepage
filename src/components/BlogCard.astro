@@ -1,0 +1,88 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { id, data } = post;
+// id 是文件路径如 "hello-world.md"，去掉 .md 作为 URL slug
+const slug = id.replace(/\.(md|mdx)$/, '');
+---
+
+<article class="blog-card">
+  <a href={`/blog/${slug}`} class="blog-card-link">
+    <time class="blog-card-date" datetime={data.pubDate.toISOString()}>
+      {data.pubDate.toLocaleDateString('zh-CN', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })}
+    </time>
+    <h2 class="blog-card-title">{data.title}</h2>
+    <p class="blog-card-desc">{data.description}</p>
+    <div class="blog-card-tags">
+      {data.tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--gap-lg) 0;
+    transition: opacity 0.2s;
+  }
+
+  .blog-card:first-of-type {
+    padding-top: 0;
+  }
+
+  .blog-card:hover {
+    opacity: 0.8;
+  }
+
+  .blog-card-link {
+    display: block;
+    color: inherit;
+  }
+
+  .blog-card-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--gap-sm);
+  }
+
+  .blog-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: var(--gap-sm);
+    color: var(--color-text);
+  }
+
+  .blog-card-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--gap-sm);
+  }
+
+  .blog-card-tags {
+    display: flex;
+    gap: var(--gap-sm);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    background: rgba(91, 91, 214, 0.08);
+    border-radius: 4px;
+  }
+</style>

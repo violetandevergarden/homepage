@@ -1,0 +1,74 @@
+
+/* 全局样式 */
+
+:root {
+  /* 颜色 */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #6c757d;
+  --color-accent: #5b5bd6;
+  --color-accent-hover: #4a4ac2;
+  --color-border: #e9ecef;
+
+  /* 排版 */
+  --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* 间距 */
+  --max-width: 800px;
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 2rem;
+  --gap-xl: 4rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gap-lg);
+}

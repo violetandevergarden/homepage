@@ -1,0 +1,141 @@
+---
+export interface Props {
+  name?: string;
+  subtitle?: string;
+}
+
+const { name = 'kumiko', subtitle = '努力的尽头是奇迹' } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-name">{name}</h1>
+      <p class="hero-subtitle">{subtitle}</p>
+      <p class="hero-bio">
+        这里是记录我学习过程的地方。
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/violetandevergarden" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:your-email@example.com" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          邮箱
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--gap-xl) 0;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: var(--gap-sm);
+    background: linear-gradient(135deg, var(--color-accent), #e040a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--gap-md);
+  }
+
+  .hero-bio {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--gap-lg);
+    max-width: 480px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: var(--gap-md);
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(91, 91, 214, 0.05);
+  }
+
+  .hero-avatar {
+    flex-shrink: 0;
+  }
+
+  .avatar-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), #e040a0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: var(--gap-lg) 0;
+    }
+
+    .hero-inner {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero-bio {
+      max-width: 100%;
+    }
+
+    .hero-links {
+      justify-content: center;
+    }
+
+    .hero-name {
+      font-size: 2rem;
+    }
+
+    .avatar-placeholder {
+      width: 100px;
+      height: 100px;
+      font-size: 2.2rem;
+    }
+  }
+</style>

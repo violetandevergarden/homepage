@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="关于 — kumiko" description="关于我和这个站点">
+  <div class="about-page container">
+    <h1 class="page-title">关于</h1>
+
+    <section class="about-section">
+      <h2>关于我</h2>
+      <p>
+        你好！我是kumiko。
+      </p>
+      <p>
+        希望通过这个站点记录自己的学习过程。
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>关于这个站点</h2>
+      <p>
+        这个个人主页使用 <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> 构建，
+        托管在 Cloudflare Pages 上。代码完全开源，可以在
+        <a href="https://github.com/violetandevergarden" target="_blank" rel="noopener noreferrer">GitHub</a> 上找到。
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>联系方式</h2>
+      <ul>
+        <li>GitHub：<a href="https://github.com/violetandevergarden" target="_blank" rel="noopener noreferrer">violetandevergarden</a></li>
+        <li>邮箱：<a href="mailto:your-email@example.com">暂无</a></li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-page {
+    padding: var(--gap-xl) 0;
+    max-width: 680px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--gap-lg);
+  }
+
+  .about-section {
+    margin-bottom: var(--gap-xl);
+  }
+
+  .about-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: var(--gap-md);
+    padding-bottom: var(--gap-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--gap-md);
+  }
+
+  .about-section ul {
+    padding-left: var(--gap-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+
+  .about-section li {
+    margin-bottom: var(--gap-sm);
+  }
+</style>
