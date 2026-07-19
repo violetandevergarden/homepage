@@ -12,7 +12,7 @@ const slug = id.replace(/\.(md|mdx)$/, '');
 ---
 
 <article class="blog-card">
-  <a href={`${import.meta.env.BASE_URL}blog/${slug}`} class="blog-card-link">
+  <a href={`${import.meta.env.BASE_URL}/blog/${slug}`} class="blog-card-link">
     <time class="blog-card-date" datetime={data.pubDate.toISOString()}>
       {data.pubDate.toLocaleDateString('zh-CN', {
         year: 'numeric',
